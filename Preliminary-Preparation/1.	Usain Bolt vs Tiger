@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        double finish, distancetoBolt, tigerAccelaration, boltSpeed;
+        cin >> finish >> distancetoBolt >> tigerAccelaration >> boltSpeed;
+
+        double timeBolt = finish / boltSpeed;
+        double tigerDistance = 0.5 * tigerAccelaration * timeBolt * timeBolt;
+
+        if (tigerDistance < finish + distancetoBolt)
+            cout << "Bolt\n";
+        else
+            cout << "Tiger\n";
+    }
+
+    return 0;
+}

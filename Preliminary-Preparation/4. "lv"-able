@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    string s;
+    cin >> n >> s;
+//lv is not equal to no found, i.e lv is there so 0 steps to do, to get lv
+    if (s.find("lv") != string::npos) {  
+        cout << 0 << '\n';
+    }
+    else if (s.find('l') != string::npos || s.find('v') != string::npos) {
+        cout << 1 << '\n';
+    }
+    else {
+        cout << 2 << '\n';
+    }
+
+    return 0;
+}

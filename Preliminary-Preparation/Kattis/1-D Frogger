@@ -1,1 +1,66 @@
 //https://open.kattis.com/problems/1dfroggereasy
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, s, magic;
+    cin >> n >> s >> magic;
+
+    vector<int> board(n + 1);
+
+    for (int i = 1; i <= n; i++) {
+        cin >> board[i];
+    }
+
+    vector<bool> visited(n + 1, false);
+
+    int pos = s;
+    int hops = 0;
+
+    while (true) {
+        // Fate 1: magic number
+        if (board[pos] == magic) {
+            cout << "magic\n";
+            cout << hops << '\n';
+            break;
+        }
+
+        // Mark current square as visited
+        visited[pos] = true;
+
+        // Calculate next position
+        int next;
+
+        if (board[pos] > 0)
+            next = pos + board[pos];
+        else
+            next = pos + board[pos];
+
+        // Fate 2: left
+        if (next < 1) {
+            cout << "left\n";
+            cout << hops + 1 << '\n';
+            break;
+        }
+
+        // Fate 3: right
+        if (next > n) {
+            cout << "right\n";
+            cout << hops + 1 << '\n';
+            break;
+        }
+
+        // Fate 4: cycle
+        if (visited[next]) {
+            cout << "cycle\n";
+            cout << hops + 1 << '\n';
+            break;
+        }
+
+        // Make the hop
+        pos = next;
+        hops++;
+    }
+
+    return 0;
+}

@@ -18,7 +18,7 @@ int main() {
     int hops = 0;
 
     while (true) {
-        // Fate 1: magic number
+        // Fate 1: magic number, eg: board[1] = 7
         if (board[pos] == magic) {
             cout << "magic\n";
             cout << hops << '\n';
